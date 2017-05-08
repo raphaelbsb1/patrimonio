@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name="USUARIO")
 public class Usuario {
 	
 	@Id
@@ -17,6 +17,15 @@ public class Usuario {
 	private String senha;
 	@Column
 	private String email;
+	
+	public Usuario(){}
+	
+	public Usuario(String nome, String senha, String email) {
+		super();
+		this.nome = nome;
+		this.senha = senha;
+		this.email = email;
+	}
 	
 	public Integer getId() {
 		return id;
