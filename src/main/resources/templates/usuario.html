@@ -3,41 +3,110 @@
 <head>
 <meta charset="UTF-8"></meta>
 <link rel="stylesheet" href="css/bootstrap.min.css" />
-<link href="css/signin.css" rel="stylesheet" />
+<link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="css/theme.css" rel="stylesheet" />
 <title>Sistema de Gestão Patrimonial</title>
 </head>
 <body>
-	<div class="container">
-	
-	<div id="usuarios">
-		<table class="table table-hover">
-			<thead>
-				<tr>
-					<th>Nome</th>
-					<th>Email</th>
-				</tr>
-			</thead>
-			<tr th:each="usuario : ${usuarios}">
-				<td><span th:text="${usuario.nome}"></span></td>
-				<td><span th:text="${usuario.email}"></span></td>
-			</tr>
-		</table>
-	</div>
 
-		<form class="form-signin" action="salvar" method="post">
-			<h2 class="form-signin-heading">Usuário</h2>
-			<label for="nome" class="sr-only">Nome</label> 
-			<input type="text" id="nome" name="nome" class="form-control" placeholder="Nome" />
-			<label for="email" class="sr-only">Email</label> 
-			<input type="email" id="email" name="email" class="form-control" placeholder="Email" /> 
-			<label for="senha" class="sr-only">Senha</label>
-			<input type="password" id="senha" class="form-control" name="senha" placeholder="Senha" /> 
-			<label for="confirmacaoSenha" class="sr-only">Confirmação senha</label> 
-			<input type="password" id="confirmacaoSenha" name="confirmacaoSenha" class="form-control" placeholder="Confirmação senha" />
+	<!-- Fixed navbar -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">SISTEMA DE GESTÃO PATRIMONIAL</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">PRINCIPAL</a></li>
+					<li><a href="#about">USUÁRIOS</a></li>
+					<li><a href="#contact">AJUDA</a></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false">Dropdown <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Action</a></li>
+							<li><a href="#">Another action</a></li>
+							<li><a href="#">Something else here</a></li>
+							<li role="separator" class="divider"></li>
+							<li class="dropdown-header">Nav header</li>
+							<li><a href="#">Separated link</a></li>
+							<li><a href="#">One more separated link</a></li>
+						</ul></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</nav>
 
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Salvar</button>
+	<div class="container theme-showcase" role="main">
+		<div class="page-header">
+			<h1>Usuários</h1>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Nome</th>
+							<th>E-mail</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="usuario : ${usuarios}">
+							<td><span th:text="${usuario.nome}"></span></td>
+							<td><span th:text="${usuario.email}"></span></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+
+
+		<form action="salvar" method="post">
+			<div class="form-group row">
+				<div class="col-md-4">
+					<label for="nome">Nome</label> <input type="text" id="nome"
+						name="nome" class="form-control" placeholder="Nome" />
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<div class="col-md-4">
+					<label for="email">Email</label> <input type="email" id="email"
+						name="email" class="form-control" placeholder="Email" />
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<div class="col-md-4">
+					<label for="senha">Senha</label> <input type="password" id="senha"
+						class="form-control" name="senha" placeholder="Senha" />
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<div class="col-md-4">
+					<label for="confirmacaoSenha">Confirmação senha</label> <input
+						type="password" id="confirmacaoSenha" name="confirmacaoSenha"
+						class="form-control" placeholder="Confirmação senha" />
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<div class="col-md-2">
+					<button class="btn btn-sm btn-default" type="submit">Salvar</button>
+				</div>
+			</div>
+
 		</form>
-
 	</div>
 </body>
 </html>
