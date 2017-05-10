@@ -7,11 +7,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import br.com.evolution.EntregadorEmailService;
+
 @Controller
 public class UsuarioController {
 
 	@Autowired
-	private UsuarioRepository usuarioRepository;
+	private UsuarioService usuarioService;
 	
 	@RequestMapping("/")
 	String index(){
@@ -26,12 +28,16 @@ public class UsuarioController {
 	@RequestMapping(value = "salvar", method = RequestMethod.POST)
 	String salvar(@RequestParam("nome")String nome, @RequestParam("email")String email, 
 			@RequestParam("senha")String senha, Model model){
-		Usuario usuario = new  Usuario(nome, senha, email);
-		usuarioRepository.save(usuario);
 		
-		Iterable<Usuario> usuarios = usuarioRepository.findAll();
+		usuarioService.salvarUsuario(nome, email, senha);
+		//new EntregadorEmailService().enviar(nome, email);
+		Iterable<Usuario> usuarios = usuarioService.listarTodos();
 		model.addAttribute("usuarios", usuarios);
 		return "usuario";
 	}
+
+
+
+
 	
 }
