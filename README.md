@@ -1,5 +1,4 @@
-# patrimonio
-Sistema de patrimônio simples com spring boot
+# Sistema de patrimônio simples com spring boot
 
 Links usados no projeto  
 http://start.spring.io/  
