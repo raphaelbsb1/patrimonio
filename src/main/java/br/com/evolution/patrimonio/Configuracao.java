@@ -25,10 +25,10 @@ public class Configuracao {
 	@Bean
 	DataSource getDataSource(){
 		DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
-		driverManagerDataSource.setDriverClassName("org.h2.Driver");
+		//driverManagerDataSource.setDriverClassName("org.h2.Driver");
 		driverManagerDataSource.setUrl("jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1");
-		driverManagerDataSource.setUsername("sa");
-		driverManagerDataSource.setPassword("");
+		//driverManagerDataSource.setUsername("sa");
+		//driverManagerDataSource.setPassword("");
 		
 		criaDB(driverManagerDataSource);
 		return driverManagerDataSource;
